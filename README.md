@@ -39,8 +39,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
     url(r'^customrpc/$', RPCEndpoint(lambda *args, **kwargs: True).get_view()),
-    OR
-    url(r'^customrpc/$', RPCEndpoint(auth_fn_internal_rpc).get_view()),
+    #OR
+    url(r'^securecustomrpc/$', RPCEndpoint(auth_fn_internal_rpc).get_view()),
     ]
 
 
