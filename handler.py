@@ -9,7 +9,7 @@ from utils.view_utils import atomic_exception_handler
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from functools import partial
 
-INTERNAL_SERVER_TOKENS = {'PINT_SERVER': '8c7031da1987404f8f5bfca85917a09c'}
+INTERNAL_SERVER_TOKENS = {'TOKEN': '607aa76905fe663510effc2ebfdcc994'}
 
 
 class MissingRpcData(Exception):
