@@ -33,7 +33,7 @@ def auth_fn_internal_rpc(request, *args, **kwargs):
 
 class RPCEndpoint:
 
-    process_pool = ThreadPoolExecutor(max_workers=4)
+    process_pool = ThreadPoolExecutor(max_workers=4)#using threadpool to later use batch manager method calls
 
     def __init__(self, auth_fn):
         self.auth_fn = auth_fn
@@ -49,6 +49,7 @@ class RPCEndpoint:
     def view(self, request, *args, **kwargs):
         # return RPCEndpoint.view_code(request, *args, **kwargs)
         f = RPCEndpoint.process_pool.submit(partial(self.view_code, request, *args, **kwargs))
+        #threadpool for batch manager method calls, i.e calling same manager method with mulitple inputs or diff man methods with multiple inputs
         return f.result()
 
     @csrf_exempt
